@@ -7,17 +7,17 @@ username = "USERNAME"
 @streamingClient.user do |tweet|
     if tweet.class == Twitter::Tweet && tweet.text.include?("@#{username}") && !tweet.in_reply_to_status_id
         puts "Found tweet: #{tweet}"
-        if tweet.text.include?("‰½")
+        if tweet.text.include?("ä½•æ™‚")
             now = Time.now
-            @restClient.update("@#{tweet.user.screen_name} ¡‚Í#{now.hour}#{now.min}•ª#{now.sec}•b‚Å‚·B", in_reply_to_status_id: tweet.id)
+            @restClient.update("@#{tweet.user.screen_name} ä»Šã¯#{now.hour}æ™‚#{now.min}åˆ†#{now.sec}ç§’ã§ã™ã€‚", in_reply_to_status_id: tweet.id)
         end
-        if tweet.text.include?("¡“ú")
+        if tweet.text.include?("ä»Šæ—¥")
             today = Time.now
-            @restClient.update("@#{tweet.user.screen_name} ¡“ú‚Í#{today.year}”N#{today.month}Œ#{today.day}“ú‚Å‚·B", in_reply_to_status_id: tweet.id)
+            @restClient.update("@#{tweet.user.screen_name} ä»Šæ—¥ã¯#{today.year}å¹´#{today.month}æœˆ#{today.day}æ—¥ã§ã™ã€‚", in_reply_to_status_id: tweet.id)
         end
-        if tweet.text.include?("–¾“ú")
+        if tweet.text.include?("æ˜æ—¥")
             tomorrow = Time.now + (60*60*24)
-            @restClient.update("@#{tweet.user.screen_name} –¾“ú‚Í#{tomorrow.year}”N#{tomorrow.month}Œ#{tomorrow.day}“ú‚Å‚·B", in_reply_to_status_id: tweet.id)
+            @restClient.update("@#{tweet.user.screen_name} æ˜æ—¥ã¯#{tomorrow.year}å¹´#{tomorrow.month}æœˆ#{tomorrow.day}æ—¥ã§ã™ã€‚", in_reply_to_status_id: tweet.id)
         end
     end
 end
